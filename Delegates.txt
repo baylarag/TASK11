@@ -1,0 +1,31 @@
+internal class Program
+    {
+        public delegate void Action(string word);
+        public delegate bool Predicate(int num1,int num2);
+        public delegate T Func<T>(T element);
+        
+        static void Main()
+        {
+            
+           
+
+        }
+        public static bool Yoxla(int num1,int num2,Predicate del)
+        {
+            return del(num1, num2); 
+
+        }
+        public static void Print(string name)
+        {
+            Console.WriteLine(name);
+
+        }
+        public static void Check<T>(T mesage,Func<T> del)
+        {
+            del(mesage);
+        }
+     
+
+
+    }
+}
