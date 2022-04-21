@@ -1,0 +1,49 @@
+create table students(
+    Id int PRIMARY key IDENTITY(1,1),
+    NAMES NVARCHAR(20),
+    Surname NVARCHAR(20)
+)
+CREATE Table teachers (
+    Id int PRIMARY key IDENTITY(20,1),
+    NAMES NVARCHAR(20),
+    Surname NVARCHAR(20),
+    KecdiyiFeninadi NVARCHAR(20)
+)
+CREATE TABLE [Group](
+    Id int Primary key IDENTITY(30,1),
+    namefakulty NVARCHAR (30),
+    StudentsId int FOREIGN KEY REFERENCES students(id),
+    TechersId int FOREIGN KEY REFERENCES teachers(id)
+
+) 
+insert into students
+VALUES ('Beyler','Quliyev'),
+        ('Samin ','Qurbanof'),
+        ('Taptig','Aliyev'),
+        ('Cefer','Verdiyev')
+
+insert into teachers
+VALUES('Kamil','Memedov','Riyaziyat'),
+      ('Musa','Imamquliyev','English')
+
+SELECT * from students
+SELECT * FROM teachers
+select* from [Group]
+
+insert into [Group]
+VALUES('computer science',1,20),
+      ('computer science',2,20),
+      ('Teacher',3,21),
+      ('computer science',4,20)
+
+      select 
+      t.[NAMES] as [teacher name],
+      t.surname as [teacher surname],
+      t.KecdiyiFeninadi as[ Fenin adi],
+      gr.namefakulty as[Fakultet],
+      st.Names as[Student name],
+      st.Surname as[Student surname]
+
+      from teachers t 
+      join [Group] gr on t.id=gr.TechersId
+      join students st on st.id=gr.StudentsId
